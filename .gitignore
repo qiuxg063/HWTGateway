@@ -1,0 +1,45 @@
+# Build and Release Folders
+bin-debug/
+bin-release/
+[Oo]bj/
+[Bb]in/
+
+# Other files and folders
+.settings/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# --- NuGet 包 ---
+packages/
+
+# Executables
+*.swf
+*.air
+*.ipa
+*.apk
+
+# --- 其他常见忽略项 ---
+*.log
+*~
+
+# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
+# should NOT be excluded as they contain compiler settings and other important
+# information for Eclipse / Flash Builder.
+/.vs
+/HWTGateway/wwwroot/3d
+/HWTGateway/HWTGateway.db-wal
+/HWTGateway/HWTGateway.db-shm
+/HWTGateway/Properties/PublishProfiles/FolderProfile.pubxml
+/HWTGateway/Properties/PublishProfiles/FolderProfile.pubxml.user
+/HWTGateway/HWTGateway.csproj.user
+/HWTGateway/.config
+*.ps1
+/myNote
+/HWTGateway/backups
+/HWTGateway/data/HWTGateway.db-shm
+/HWTGateway/data/HWTGateway.db-wal
+/docs
+# /HWTGateway/data

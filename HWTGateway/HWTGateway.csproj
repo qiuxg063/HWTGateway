@@ -1,0 +1,73 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<CopyRefAssembliesToPublishDirectory>true</CopyRefAssembliesToPublishDirectory>
+		<AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+		<SatelliteResourceLanguages>zh-Hans,en</SatelliteResourceLanguages>
+		<ServerGarbageCollection>false</ServerGarbageCollection>
+		<ConcurrentGarbageCollection>true</ConcurrentGarbageCollection>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<GenerateRuntimeConfigDevFile>true</GenerateRuntimeConfigDevFile>
+		<Nullable>disable</Nullable>
+
+		<CopyRefAssembliesToPublishDirectory>true</CopyRefAssembliesToPublishDirectory>
+
+		<ApplicationIcon>wwwroot\favicon.ico</ApplicationIcon>
+		<!--<PlatformTarget>x86</PlatformTarget>-->
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Remove="wwwroot\images\0wx.png" />
+	  <Content Remove="wwwroot\images\0wxgroup.png" />
+	</ItemGroup>
+
+
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.3">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="System.IO.Ports" Version="8.0.0" />
+		<PackageReference Include="System.Security.Cryptography.Pkcs" Version="8.0.1" />
+		<PackageReference Include="MQTTnet" Version="4.3.7.1207" />
+		<PackageReference Include="MQTTnet.AspNetCore" Version="4.3.7.1207" />
+		<PackageReference Include="MQTTnet.Extensions.Rpc" Version="4.3.7.1207" />
+		<PackageReference Include="NLog" Version="5.4.0" />
+		<PackageReference Include="NLog.Web.AspNetCore" Version="5.4.0" />
+		<PackageReference Include="ModelContextProtocol" Version="0.1.0-preview.6" />
+		<PackageReference Include="ModelContextProtocol.AspNetCore" Version="0.1.0-preview.6" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\HWTGateway.Model\HWTGateway.Model.csproj" />
+		<ProjectReference Include="..\HWTGateway.DataAccess\HWTGateway.DataAccess.csproj" />
+		<ProjectReference Include="..\HWTGateway.Service\HWTGateway.Service.csproj" />
+		<ProjectReference Include="..\HWTGateway.ViewModel\HWTGateway.ViewModel.csproj" />
+		<ProjectReference Include="..\WalkingTec.Mvvm\WalkingTec.Mvvm.Mvc\WalkingTec.Mvvm.Mvc.csproj" />
+		<ProjectReference Include="..\WalkingTec.Mvvm\WalkingTec.Mvvm.TagHelpers.LayUI\WalkingTec.Mvvm.TagHelpers.LayUI.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="data\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Update="appsettings.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Update="nlog.config">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="data\HWTGateway.db">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+</Project>
+
+

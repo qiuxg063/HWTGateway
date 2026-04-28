@@ -1,0 +1,119 @@
+﻿@model HWTGateway.ViewModel.HomeVMs.LoginVM
+
+@{
+    Layout = null;
+    //int bgnumber = new Random().Next(1, 6);
+    int bgnumber = new Random().Next(2, 2);
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="/jquery.min.js"></script>
+    <script src="/jquery.cookie.js"></script>
+    <script src="/layui/layui.js"></script>
+    <script src="/_js/framework_layui.js?time=@DateTime.Now.Ticks"></script>
+    <link rel="stylesheet" href="~/sitecss/logincss.css">
+    <!-- changed by qxg -->
+    <title>MYGateway</title>
+    <style>
+        /* 添加样式让登录表单居中 */
+        .loginBody {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* 为了让子元素可以相对于这个容器定位 */
+        }
+
+        .login-header {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px; /* 可以根据需要调整内边距 */
+        }
+
+        .login-form {
+            width: 400px; /* 可根据需要调整表单宽度 */
+        }
+    </style>
+
+    <script type="text/javascript">
+        function verify() {
+            $('#verify_code_img').attr('src', '/_framework/GetVerifyCode?id=' + Math.random());
+        }
+        $(document).ready(function () {
+            verify();
+            $("input[name='VerifyCode']").attr('autocomplete', 'off');
+        });
+        layui.use('layer');
+    </script>
+</head>
+
+<body>
+    <div class="loginBody app-login-back-@bgnumber" style="flex: 1 1 auto !important; ">
+        <header class="login-header">
+            <!-- changed by qxg -->
+            @*  <img src="/images/logo.png" alt="" height="48"> *@
+            <img src="/images/wxgroup.png" alt="" style="float:right" height="150">
+        </header>
+        <div class="login-content">
+            <div class="login-form">
+                <!-- changed by qxg -->
+                @*  <h1>HWTGateway</h1> *@
+                <h1>HWTGateway</h1>
+                <br />
+                <form action="/Login/Login" method="post">
+                    <input type="hidden" name="Redirect" value="@Model.Redirect">
+                    <ul class="loginForm">
+                        <li>
+                            <i><img src="~/images/icon-login04.png" /></i>
+                            <input type="text" name="ITCode" placeholder="@Model.Localizer["Login.InputUserName"]" class="login-input" autocomplete="off" value="@Model.ITCode">
+                        </li>
+                        <li>
+                            <i style="width: 16px;"><img src="~/images/icon-login01.png" /></i>
+                            <input type="password" name="Password" placeholder="@Model.Localizer["Login.InputPassword"]" class="login-input" value="@Model.Password">
+                        </li>
+                        @if (Model.Wtm.ConfigInfo.EnableTenant == true)
+                        {
+                            <li>
+                                <i><img src="~/images/icon-login04.png" /></i>    <input type="text" name="Tenant" placeholder="@Model.Localizer["Login.InputTenant"]" class="login-input" autocomplete="off" value="@Model.Tenant">
+                            </li>
+                        }
+                        <li>
+                            <i><img src="~/images/icon-login03.png" /></i>
+                            <input type="text" name="VerifyCode" placeholder="@Model.Localizer["Login.InputValidation"]" class="login-input">
+                            <p class="login-code">
+                            </p>
+                            <img class="login-codeImg" id="verify_code_img" alt="VerifyCode" src="/_framework/GetVerifyCode?id=@DateTime.Now.Ticks">
+                            <i class="login-code"><img src="~/images/icon-login02.png" onclick="verify()" /></i>
+                        </li>
+                        <li style="text-align:right;vertical-align:text-top">
+                            <input type="checkbox" name="RememberLogin" value="true" @(Model.RememberLogin ? "checked" : "")>
+                            <span style="font-size:14px; margin-left:5px;">@Model.Localizer["Login.RememberMe"]</span>
+                        </li>
+
+                        <li>
+                            <span class="login-error">@Model.MSD.GetFirstError()</span>
+                            <button type="submit" class="login-button" style="cursor:pointer">@Model.Localizer["Login.Login"]</button>
+                            <!-- changed by qxg -->
+                            @* 
+                <div class="login-button" style="cursor:pointer">
+                    <a href="http://HWTGateway.net/docs/enterprise/intro" target="_blank">企业版</a>
+                </div>
+                  <wt:linkbutton window-title="@Model.Localizer["Login.Register"]" class="login-button" style="cursor:pointer" target="ButtonTargetEnum.Layer" window-width="500" window-height="500" url="/Login/Reg" text="@Model.Localizer["Login.Register"]" /> 
+                *@
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

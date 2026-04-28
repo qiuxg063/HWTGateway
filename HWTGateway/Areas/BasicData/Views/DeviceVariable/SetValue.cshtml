@@ -1,0 +1,26 @@
+﻿@using HWTGateway.ViewModel.BasicData.DeviceVariableVMs
+@model HWTGateway.ViewModel.BasicData.DeviceVariableVMs.SetValueVM
+@inject IStringLocalizer<Program> Localizer;
+
+
+<wt:form vm="@Model" Url="/BasicData/DeviceVariable/DoSetValue">
+    <wt:row items-per-row="ItemsPerRowEnum.One">
+        @if (@Model.SetValues.Any())
+        {
+            foreach (var setValue in @Model.SetValues)
+            {
+                <hr class="layui-border-blue">
+                <wt:quote>@setValue.DeviceName/@setValue.Name：【原值：@setValue.RawValue】=>【计算值：@setValue.Value】</wt:quote>
+                <div style="display: none">
+                    <wt:textbox field=@setValue.ID />
+                </div>
+                <wt:textbox field=@setValue.SetRawValue/>
+            }
+        }
+    </wt:row>
+
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton  text="下发" />
+        <wt:closebutton text="取消" />
+    </wt:row>
+</wt:form>

@@ -1,0 +1,18 @@
+﻿@using HWTGateway.Model
+@model HWTGateway.ViewModel.BasicData.DeviceConfigVMs.DeviceConfigVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:combobox field="Entity.DeviceId" items="AllDevices"/>
+<wt:textbox field="Entity.DeviceConfigName" />
+<wt:combobox field="Entity.DataSide" default-value="@DataSide.ClientSide" />
+<wt:textbox field="Entity.Description" />
+<wt:textbox field="Entity.Value" />
+<wt:textbox field="Entity.EnumInfo" />
+</wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

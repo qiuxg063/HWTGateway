@@ -1,0 +1,31 @@
+﻿@model HWTGateway.ViewModel.HomeVMs.RegVM
+
+<p style="text-align:center;margin-top:10px;font-size:16px">@Model.Localizer["Login.RegTitle"]</p>
+
+<script type="text/javascript">
+    function refreshRegVerifyCode() {
+        $('#reg_verify_code_img').attr('src', '/_framework/GetVerifyCode?id=' + Math.random());
+    }
+    $(function () {
+        refreshRegVerifyCode();
+    });
+</script>
+
+<wt:form vm="@Model">
+  <wt:textbox field="ITCode" />
+  <wt:textbox field="Name" />
+  <wt:textbox is-password="true" field="Password" />
+  <wt:textbox is-password="true" field="NewPasswordComfirm" />
+  <wt:textbox field="Email" />
+  <wt:textbox field="CellPhone" />
+  <wt:textbox field="VerifyCode" />
+  <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+      <img class="login-codeImg" id="reg_verify_code_img" alt="验证码" src="/_framework/GetVerifyCode?id=@DateTime.Now.Ticks">
+      <i class="login-code">
+          <img src="~/images/icon-login02.png" onclick="refreshRegVerifyCode()" />
+      </i>
+  </div>
+  <wt:row align="AlignEnum.Center">
+    <wt:submitbutton size=" ButtonSizeEnum.Normal" />
+  </wt:row>
+</wt:form>

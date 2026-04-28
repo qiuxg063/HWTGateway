@@ -1,4 +1,4 @@
-# HWTGateway
+# HWTGateway （fork from IoTGateway.net）
 
 网址：http://ip:516/Login/Login
 
@@ -21,4 +21,4 @@
 
 
 - 请*严格*遵循**MIT**协议
-
+- 关联授权请遵循LICENSE.txt文件

@@ -1,0 +1,15 @@
+This product includes and utilizes third-party software components.
+For details regarding the relevant third-party components, versions, license types, and compliance statements, please refer to:
+THIRD-PARTY-NOTICES.md
+The third-party components identified in this product include, but are not limited to:
+OPCFoundation.NetStandard.Opc.Ua.Client
+MQTTnet
+NLog
+DynamicExpresso.Core
+Mono.Options
+Swashbuckle.AspNetCore.*
+DUWENINK.Captcha
+WalkingTec.Mvvm
+The above components remain subject to their respective original licenses.
+To the extent that their licenses require the retention of copyright notices, disclaimers, or notice files, such items shall be distributed along with this product.
+This document serves solely to notify users of the existence of third-party components and does not constitute a waiver or transfer of any third-party rights.

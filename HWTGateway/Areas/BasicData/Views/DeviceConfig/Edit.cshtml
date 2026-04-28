@@ -1,0 +1,26 @@
+﻿@model HWTGateway.ViewModel.BasicData.DeviceConfigVMs.DeviceConfigVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:form vm="@Model" height="400">
+    <wt:row items-per-row="ItemsPerRowEnum.Two">
+        <wt:textbox field="Entity.DeviceConfigName" />
+        @{
+            if (!string.IsNullOrEmpty(Model.Entity.EnumInfo))
+            {
+                <wt:combobox field="Entity.Value" items="AllTypes" />
+            }
+            else
+            {
+                <wt:textbox field="Entity.Value" />
+            }
+        }
+        <wt:textbox field="Entity.Description" />
+        <wt:combobox field="Entity.DataSide" />
+        @*<wt:combobox field="Entity.DeviceId" items="AllDevices" />*@
+    </wt:row>
+    <wt:hidden field="Entity.ID" />
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>
